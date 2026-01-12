@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Research Foundation | All-In Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a365d;
+            --primary-blue-light: #2c5282;
+            --accent-orange: #ed8936;
+            --accent-orange-light: #f6ad55;
+            --text-dark: #2d3748;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --bg-light: #f7fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --success-green: #48bb78;
+            --warning-yellow: #ecc94b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-light);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            color: white;
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: 200px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--accent-orange);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Navigation */
+        .section-nav {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 68px;
+            z-index: 99;
+        }
+
+        .section-nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .section-nav-links a {
+            display: block;
+            padding: 10px 20px;
+            background: var(--bg-light);
+            color: var(--text-medium);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+        }
+
+        .section-nav-links a:hover,
+        .section-nav-links a.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* Main Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            background: var(--accent-orange);
+            color: white;
+            border-radius: 50%;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            line-height: 48px;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        /* Stats */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .stat-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-value.orange {
+            color: var(--accent-orange);
+        }
+
+        .stat-label {
+            color: var(--text-medium);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-detail {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: var(--primary-blue);
+            color: white;
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        tr:hover {
+            background: var(--bg-light);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Charts */
+        .chart-container {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+        }
+
+        .chart-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.125rem;
+            color: var(--primary-blue);
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .bar-label {
+            width: 140px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-medium);
+            flex-shrink: 0;
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 32px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.875rem;
+            transition: width 0.5s ease-out;
+        }
+
+        .bar-fill.orange {
+            background: linear-gradient(90deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
+        }
+
+        /* Positioning Map */
+        .positioning-map {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .map-axis-x {
+            position: absolute;
+            bottom: 60px;
+            left: 80px;
+            right: 40px;
+            height: 2px;
+            background: var(--border-color);
+        }
+
+        .map-axis-y {
+            position: absolute;
+            left: 80px;
+            top: 40px;
+            bottom: 60px;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .map-label-x {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 600;
+            color: var(--text-medium);
+            font-size: 0.875rem;
+        }
+
+        .map-label-y {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            font-weight: 600;
+            color: var(--text-medium);
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+
+        .map-point {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: white;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: transform 0.3s;
+            padding: 8px;
+            line-height: 1.2;
+        }
+
+        .map-point:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            z-index: 10;
+        }
+
+        .map-point.large {
+            width: 100px;
+            height: 100px;
+        }
+
+        .map-point.you {
+            background: var(--accent-orange);
+            border: 4px solid white;
+            box-shadow: 0 4px 20px rgba(237, 137, 54, 0.4);
+        }
+
+        .map-point.competitor {
+            background: var(--primary-blue);
+            opacity: 0.8;
+        }
+
+        .map-quadrant {
+            position: absolute;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Segments */
+        .segment-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .segment-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+        }
+
+        .segment-card.primary {
+            border: 3px solid var(--accent-orange);
+        }
+
+        .segment-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            color: white;
+            padding: 24px;
+        }
+
+        .segment-card.primary .segment-header {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
+        }
+
+        .segment-header h4 {
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        .segment-header p {
+            opacity: 0.9;
+            font-size: 0.875rem;
+        }
+
+        .segment-body {
+            padding: 24px;
+        }
+
+        .segment-stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .segment-stat:last-child {
+            border-bottom: none;
+        }
+
+        .segment-stat-label {
+            color: var(--text-medium);
+            font-size: 0.875rem;
+        }
+
+        .segment-stat-value {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .primary-badge {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-left: 8px;
+        }
+
+        /* Persona */
+        .persona-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .persona-header {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
+            color: white;
+            padding: 32px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .persona-avatar {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+
+        .persona-header h4 {
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+        }
+
+        .persona-body {
+            padding: 32px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .persona-section h5 {
+            color: var(--primary-blue);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .persona-section ul {
+            list-style: none;
+        }
+
+        .persona-section li {
+            padding: 6px 0;
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .persona-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+            font-weight: bold;
+        }
+
+        /* Sources */
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .source-item {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .source-item.primary {
+            border-left-color: var(--accent-orange);
+        }
+
+        .source-type {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .source-name {
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 4px;
+        }
+
+        .source-detail {
+            font-size: 0.875rem;
+            color: var(--text-medium);
+        }
+
+        /* Limitations */
+        .limitation-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .limitation-item {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .limitation-icon {
+            width: 40px;
+            height: 40px;
+            background: #fef3c7;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+        }
+
+        .limitation-content h5 {
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .limitation-content p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+
+        /* Key Insights */
+        .insight-banner {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .insight-banner h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .insight-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .insight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .insight-number {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .insight-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 60px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand h3 span {
+            color: var(--accent-orange);
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            color: var(--accent-orange);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .positioning-map {
+                height: 400px;
+            }
+
+            .map-point {
+                width: 60px;
+                height: 60px;
+                font-size: 0.6rem;
+            }
+        }
+
+        /* Utility */
+        .text-center { text-align: center; }
+        .mb-8 { margin-bottom: 8px; }
+        .mb-16 { margin-bottom: 16px; }
+        .mb-24 { margin-bottom: 24px; }
+        .mb-32 { margin-bottom: 32px; }
+        .mb-40 { margin-bottom: 40px; }
+
+        .highlight {
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+
+        .subsection {
+            margin-bottom: 48px;
+        }
+
+        .subsection-title {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .list-styled {
+            list-style: none;
+        }
+
+        .list-styled li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .list-styled li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
+        .list-styled.warnings li::before {
+            content: '⚠';
+            color: var(--warning-yellow);
+        }
+
+        .forces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .force-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .force-card.opportunity {
+            border-top-color: var(--success-green);
+        }
+
+        .force-card.risk {
+            border-top-color: var(--warning-yellow);
+        }
+
+        .force-card h4 {
+            font-size: 1rem;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .force-card p {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 12px;
+        }
+
+        .force-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .force-tag.opp {
+            background: #c6f6d5;
+            color: #276749;
+        }
+
+        .force-tag.risk {
+            background: #fefcbf;
+            color: #975a16;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">All-In <span>Solutions</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#" class="active">Market Research</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-badge">Market Research Foundation</span>
+            <h1>Understanding the <span>Field Service</span><br>SMB Market</h1>
+            <p>A comprehensive analysis of the HVAC, plumbing, and electrical contractor market to validate our AI implementation strategy and identify opportunities.</p>
+        </div>
+    </section>
+
+    <!-- Section Navigation -->
+    <nav class="section-nav">
+        <div class="container">
+            <ul class="section-nav-links">
+                <li><a href="#industry" class="active">Industry Analysis</a></li>
+                <li><a href="#competitive">Competitive Analysis</a></li>
+                <li><a href="#target">Target Market</a></li>
+                <li><a href="#sources">Sources & Limitations</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Section 1: Industry Analysis -->
+    <section id="industry" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">1</span>
+                <h2>Industry Analysis</h2>
+                <p>Understanding market size, growth trends, and key forces shaping the field service contractor industry</p>
+            </div>
+
+            <!-- Market Size Stats -->
+            <div class="subsection">
+                <h3 class="subsection-title">Market Size & Scope</h3>
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">$758B</div>
+                        <div class="stat-label">Combined U.S. Market</div>
+                        <div class="stat-detail">HVAC + Plumbing + Electrical (2030 projected)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value orange">$28.2B</div>
+                        <div class="stat-label">HVAC Services</div>
+                        <div class="stat-detail">U.S. market size (2025)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$169.8B</div>
+                        <div class="stat-label">Plumbing Services</div>
+                        <div class="stat-detail">Repair, maintenance & installation (2025)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value orange">146K+</div>
+                        <div class="stat-label">HVAC Businesses</div>
+                        <div class="stat-detail">In the U.S. alone</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h4 class="chart-title">Market Size by Segment (2025 Estimates)</h4>
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <span class="bar-label">Plumbing</span>
+                            <div class="bar-track">
+                                <div class="bar-fill" style="width: 85%;">$169.8B</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">MEP Services</span>
+                            <div class="bar-track">
+                                <div class="bar-fill orange" style="width: 25%;">$32.5B</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">HVAC Services</span>
+                            <div class="bar-track">
+                                <div class="bar-fill" style="width: 20%;">$28.2B</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Growth Trends -->
+            <div class="subsection">
+                <h3 class="subsection-title">Growth Trends & Projections</h3>
+                <div class="two-col">
+                    <div class="chart-container">
+                        <h4 class="chart-title">Projected CAGR by Segment (2024-2030)</h4>
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <span class="bar-label">MEP Services</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill orange" style="width: 67%;">6.7%</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">HVAC Services</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 66%;">6.6%</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">Plumbing</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 34%;">3.4%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="mb-16">Key Growth Drivers</h3>
+                        <ul class="list-styled">
+                            <li><strong>Aging building stock</strong> — increasing upgrades, retrofit and replacement cycles</li>
+                            <li><strong>Regulatory incentives</strong> — IRA tax credits fueling HVAC retrofits</li>
+                            <li><strong>Construction activity</strong> — residential and commercial builds requiring MEP services</li>
+                            <li><strong>Labor demand</strong> — HVAC mechanic jobs projected to grow faster than average</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Forces -->
+            <div class="subsection">
+                <h3 class="subsection-title">Key Forces Shaping the Industry</h3>
+                <div class="forces-grid">
+                    <div class="force-card opportunity">
+                        <h4>🔧 Technological Change</h4>
+                        <p>IoT, smart systems, AI & digitization are rapidly transforming service delivery expectations.</p>
+                        <span class="force-tag opp">Opportunity</span>
+                        <p style="margin-top: 8px; margin-bottom: 0;">FSM software, predictive maintenance, scheduling AI — but adoption gap among SMBs creates entry point.</p>
+                    </div>
+                    <div class="force-card">
+                        <h4>📋 Regulatory Shifts</h4>
+                        <p>EPA refrigerant changes, energy efficiency standards driving equipment updates.</p>
+                        <span class="force-tag opp">Opportunity</span>
+                        <span class="force-tag risk" style="margin-left: 4px;">Risk</span>
+                        <p style="margin-top: 8px; margin-bottom: 0;">Compliance services and retrofits create demand, but cost burden falls on small firms.</p>
+                    </div>
+                    <div class="force-card opportunity">
+                        <h4>👥 Consumer Behavior</h4>
+                        <p>Growing preference for service contracts and maintenance agreements.</p>
+                        <span class="force-tag opp">Opportunity</span>
+                        <p style="margin-top: 8px; margin-bottom: 0;">Recurring revenue models become viable, increasing predictability for SMBs.</p>
+                    </div>
+                    <div class="force-card risk">
+                        <h4>💼 Economic Factors</h4>
+                        <p>Persistent labor shortages and rising wages squeeze margins.</p>
+                        <span class="force-tag opp">Opportunity</span>
+                        <p style="margin-top: 8px; margin-bottom: 0;">Tools that optimize limited staff become essential, not optional.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAM -->
+            <div class="subsection">
+                <h3 class="subsection-title">Total Addressable Market (TAM)</h3>
+                <div class="card">
+                    <div class="stat-grid" style="margin-bottom: 32px;">
+                        <div class="stat-card">
+                            <div class="stat-value orange">$2.5B</div>
+                            <div class="stat-label">Annual TAM</div>
+                            <div class="stat-detail">AI/tech spend potential</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">250K</div>
+                            <div class="stat-label">Target SMBs</div>
+                            <div class="stat-detail">HVAC + Plumbing + Electrical</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">$10K</div>
+                            <div class="stat-label">Avg. Annual Spend</div>
+                            <div class="stat-detail">Per firm technology budget</div>
+                        </div>
+                    </div>
+
+                    <h4 class="mb-16">TAM Calculation Method (Top-Down)</h4>
+                    <table style="margin-bottom: 24px;">
+                        <tr>
+                            <th>Step</th>
+                            <th>Calculation</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>1. Define segment</td>
+                            <td>HVAC + Plumbing + Electrical SMBs (10-50 employees)</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>2. Estimate customer base</td>
+                            <td>~146K HVAC + similar for plumbing & electrical</td>
+                            <td>250,000 firms</td>
+                        </tr>
+                        <tr>
+                            <td>3. Average tech spend</td>
+                            <td>AI & FSM software budget potential ($5K-$15K range)</td>
+                            <td>$10,000/year</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. TAM</strong></td>
+                            <td><strong>250,000 × $10,000</strong></td>
+                            <td><strong>$2.5 billion</strong></td>
+                        </tr>
+                    </table>
+
+                    <h4 class="mb-8">Assumptions & Limitations</h4>
+                    <ul class="list-styled warnings">
+                        <li>Includes all firm sizes — actual addressable subset (10-50 employees) is smaller</li>
+                        <li>Tech spend varies widely based on firm maturity and current digitization</li>
+                        <li>Segmented SMB counts by firm size not publicly available</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Key Insight -->
+            <div class="insight-banner">
+                <h3>Industry Analysis Key Insight</h3>
+                <div class="insight-list">
+                    <div class="insight-item">
+                        <span class="insight-number">1</span>
+                        <span class="insight-text"><strong>Massive, fragmented market</strong> — 250K+ SMBs with strong small-business representation creates opportunity for targeted solutions.</span>
+                    </div>
+                    <div class="insight-item">
+                        <span class="insight-number">2</span>
+                        <span class="insight-text"><strong>Labor shortage is the driver</strong> — tools that optimize limited staff aren't a luxury, they're survival.</span>
+                    </div>
+                    <div class="insight-item">
+                        <span class="insight-number">3</span>
+                        <span class="insight-text"><strong>Under-digitized segment</strong> — SMB adoption gap creates entry point for consultative AI implementation.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Competitive Analysis -->
+    <section id="competitive" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">2</span>
+                <h2>Competitive Analysis</h2>
+                <p>Understanding who customers choose instead, where competitors cluster, and where gaps exist</p>
+            </div>
+
+            <!-- Competitor Categories -->
+            <div class="subsection">
+                <h3 class="subsection-title">Competitor Landscape</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">⚔️</div>
+                            <h3>Direct Competitors</h3>
+                        </div>
+                        <p class="mb-16">FSM platforms SMBs already buy — what we'd integrate with or replace:</p>
+                        <ul class="list-styled">
+                            <li><strong>ServiceTitan</strong> — All-in-one FSM + CRM + marketing</li>
+                            <li><strong>FieldEdge</strong> — Industry-focused, QuickBooks sync</li>
+                            <li><strong>Housecall Pro</strong> — Mobile-first, easy onboarding</li>
+                            <li><strong>Jobber</strong> — Lightweight, affordable</li>
+                            <li><strong>Workiz</strong> — FSM + CRM + call tracking</li>
+                            <li><strong>ServiceM8</strong> — Mobile workflow automation</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">🔄</div>
+                            <h3>Indirect Competitors</h3>
+                        </div>
+                        <p class="mb-16">Different solutions serving similar operational pains:</p>
+                        <ul class="list-styled">
+                            <li><strong>Zoho FSM / Zoho One</strong> — Modular SaaS stack</li>
+                            <li><strong>Salesforce Field Service</strong> — Enterprise-grade</li>
+                            <li><strong>QuickBooks + plugins</strong> — Cobbled workflows</li>
+                        </ul>
+                        <h4 style="margin-top: 20px; margin-bottom: 12px;">Non-Traditional Alternatives</h4>
+                        <ul class="list-styled warnings">
+                            <li>Pen & paper / spreadsheets</li>
+                            <li>Google Workspace + phone coordination</li>
+                            <li>Legacy dispatch systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="subsection">
+                <h3 class="subsection-title">Competitive Comparison</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vendor</th>
+                                <th>Target</th>
+                                <th>Pricing</th>
+                                <th>Strengths</th>
+                                <th>Weaknesses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>ServiceTitan</strong></td>
+                                <td>Mid-to-large contractors</td>
+                                <td>Per user / revenue share</td>
+                                <td>Very powerful, deep features</td>
+                                <td>High cost, steep onboarding</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FieldEdge</strong></td>
+                                <td>HVAC/Plumb/Electrical</td>
+                                <td>Per user subscription</td>
+                                <td>Strong accounting integration</td>
+                                <td>UI feels dated</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Housecall Pro</strong></td>
+                                <td>Small-mid SMB</td>
+                                <td>Tiered per user</td>
+                                <td>Fast onboarding, mobile-first</td>
+                                <td>Limited advanced features</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Jobber</strong></td>
+                                <td>Small SMB</td>
+                                <td>Subscriptions by plan</td>
+                                <td>Simple UX, affordable</td>
+                                <td>Less automation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Workiz</strong></td>
+                                <td>Small-mid SMB</td>
+                                <td>Per user</td>
+                                <td>Integrated communications</td>
+                                <td>Multi-step processes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Salesforce FS</strong></td>
+                                <td>Large enterprise</td>
+                                <td>Enterprise pricing</td>
+                                <td>Highly customizable</td>
+                                <td>Expensive, complex</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: 16px; font-size: 0.875rem; color: var(--text-light);"><em>Note: Pricing typically ranges $49–$500+ per user/month with add-ons and implementation fees.</em></p>
+            </div>
+
+            <!-- Positioning Map -->
+            <div class="subsection">
+                <h3 class="subsection-title">Competitive Positioning Map</h3>
+                <div class="positioning-map">
+                    <div class="map-axis-x"></div>
+                    <div class="map-axis-y"></div>
+                    <span class="map-label-x">Simple ← Features → Complex</span>
+                    <span class="map-label-y">Price: Low → High</span>
+
+                    <span class="map-quadrant" style="top: 60px; left: 100px;">Premium / Simple</span>
+                    <span class="map-quadrant" style="top: 60px; right: 60px;">Premium / Full-Suite</span>
+                    <span class="map-quadrant" style="bottom: 80px; left: 100px;">Low Cost / Simple</span>
+                    <span class="map-quadrant" style="bottom: 80px; right: 60px;">Low Cost / Feature-Rich</span>
+
+                    <!-- Competitors - Y inverted: high price = low top value -->
+                    <div class="map-point competitor" style="left: 25%; top: 70%;">Jobber</div>
+                    <div class="map-point competitor" style="left: 35%; top: 65%;">ServiceM8</div>
+                    <div class="map-point competitor" style="left: 45%; top: 62%;">Housecall Pro</div>
+                    <div class="map-point competitor" style="left: 55%; top: 55%;">Workiz</div>
+                    <div class="map-point competitor" style="left: 60%; top: 40%;">FieldEdge</div>
+                    <div class="map-point competitor large" style="left: 80%; top: 25%;">ServiceTitan</div>
+                    <div class="map-point competitor" style="left: 90%; top: 15%;">Salesforce FS</div>
+                    <div class="map-point competitor" style="left: 15%; top: 80%;">DIY / Spreadsheets</div>
+
+                    <!-- Your Position -->
+                    <div class="map-point you large" style="left: 55%; top: 45%;">All-In Solutions</div>
+                </div>
+                <p style="margin-top: 16px; text-align: center; color: var(--text-medium);"><strong>Our Position:</strong> Mid-tier pricing with consultative implementation + AI-enabled operations — bridging the gap between entry products and enterprise suites.</p>
+            </div>
+
+            <!-- Market Gaps -->
+            <div class="subsection">
+                <h3 class="subsection-title">Market Gaps & Opportunities</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">🔴</div>
+                            <h3>Where It's Overcrowded</h3>
+                        </div>
+                        <ul class="list-styled warnings">
+                            <li>Basic scheduling + dispatch — table stakes, many vendors</li>
+                            <li>Mobile job sheets + invoicing — commoditized</li>
+                            <li>Generic CRM features — no differentiation</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">🟢</div>
+                            <h3>Gaps We Can Fill</h3>
+                        </div>
+                        <ul class="list-styled">
+                            <li><strong>AI-enabled operational decisions</strong> — predictive routing, skill matching, pricing engines</li>
+                            <li><strong>Consultative implementation</strong> — SMBs buy software but don't realize value</li>
+                            <li><strong>Flexible pricing for 10-50 employee shops</strong> — too expensive or too basic</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategic Lessons -->
+            <div class="insight-banner">
+                <h3>Strategic Lessons from Competitors</h3>
+                <div class="insight-list">
+                    <div class="insight-item">
+                        <span class="insight-number">1</span>
+                        <span class="insight-text"><strong>Differentiate on outcomes, not features</strong> — lead with operational metrics improvements (% admin hours reduced), not "AI inside."</span>
+                    </div>
+                    <div class="insight-item">
+                        <span class="insight-number">2</span>
+                        <span class="insight-text"><strong>Offer implementation + change management</strong> — tailored onboarding creates stickiness beyond software adoption.</span>
+                    </div>
+                    <div class="insight-item">
+                        <span class="insight-number">3</span>
+                        <span class="insight-text"><strong>Flexible value-based pricing</strong> — tie to realized ROI rather than per-user fees that SMBs resist.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Target Market -->
+    <section id="target" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">3</span>
+                <h2>Target Market</h2>
+                <p>Identifying which customer segments to focus on and why they have the strongest need</p>
+            </div>
+
+            <!-- Customer Segments -->
+            <div class="subsection">
+                <h3 class="subsection-title">Customer Segments</h3>
+                <div class="segment-cards">
+                    <div class="segment-card primary">
+                        <div class="segment-header">
+                            <h4>Growth-Stage HVAC/Plumbing SMBs <span class="primary-badge">Primary</span></h4>
+                            <p>10-50 employees, $1M-$10M revenue</p>
+                        </div>
+                        <div class="segment-body">
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Estimated Count</span>
+                                <span class="segment-stat-value">~45,000 firms</span>
+                            </div>
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Tech Adoption</span>
+                                <span class="segment-stat-value">Low-Medium</span>
+                            </div>
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Pain Intensity</span>
+                                <span class="segment-stat-value">Very High</span>
+                            </div>
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Budget for Solutions</span>
+                                <span class="segment-stat-value">$5K-$20K/year</span>
+                            </div>
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Decision Maker</span>
+                                <span class="segment-stat-value">Owner / GM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-header">
+                            <h4>Electrical Contractors</h4>
+                            <p>10-50 employees, residential/commercial mix</p>
+                        </div>
+                        <div class="segment-body">
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Estimated Count</span>
+                                <span class="segment-stat-value">~35,000 firms</span>
+                            </div>
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Tech Adoption</span>
+                                <span class="segment-stat-value">Medium</span>
+                            </div>
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Pain Intensity</span>
+                                <span class="segment-stat-value">High</span>
+                            </div>
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Budget for Solutions</span>
+                                <span class="segment-stat-value">$8K-$25K/year</span>
+                            </div>
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Decision Maker</span>
+                                <span class="segment-stat-value">Owner / Operations Mgr</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-header">
+                            <h4>Multi-Trade Service Companies</h4>
+                            <p>25-75 employees, diversified services</p>
+                        </div>
+                        <div class="segment-body">
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Estimated Count</span>
+                                <span class="segment-stat-value">~15,000 firms</span>
+                            </div>
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Tech Adoption</span>
+                                <span class="segment-stat-value">Medium-High</span>
+                            </div>
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Pain Intensity</span>
+                                <span class="segment-stat-value">High</span>
+                            </div>
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Budget for Solutions</span>
+                                <span class="segment-stat-value">$15K-$50K/year</span>
+                            </div>
+                            <div class="segment-stat">
+                                <span class="segment-stat-label">Decision Maker</span>
+                                <span class="segment-stat-value">GM / COO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why This Segment -->
+            <div class="subsection">
+                <h3 class="subsection-title">Why Growth-Stage HVAC/Plumbing SMBs First?</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 class="mb-16">Strongest Need</h3>
+                        <ul class="list-styled">
+                            <li><strong>Outgrown DIY systems</strong> — spreadsheets and whiteboards breaking down</li>
+                            <li><strong>Dispatch bottleneck</strong> — owner or one admin doing everything</li>
+                            <li><strong>Missing leads</strong> — no bandwidth to follow up quickly</li>
+                            <li><strong>Cash flow delays</strong> — manual invoicing creates gaps</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="mb-16">Reachable with Our Resources</h3>
+                        <ul class="list-styled">
+                            <li><strong>Owner-operators make fast decisions</strong> — no procurement committees</li>
+                            <li><strong>Active in trade associations</strong> — ACCA, PHCC, industry events</li>
+                            <li><strong>Word-of-mouth networks</strong> — success stories spread quickly</li>
+                            <li><strong>Local market density</strong> — can build regional reputation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Target Persona -->
+            <div class="subsection">
+                <h3 class="subsection-title">Primary Customer Persona</h3>
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👷</div>
+                        <div>
+                            <h4>"Mike the Growing Owner"</h4>
+                            <p>Owner of a 15-person HVAC company, 12 years in business, $2.5M revenue</p>
+                        </div>
+                    </div>
+                    <div class="persona-body">
+                        <div class="persona-section">
+                            <h5>Demographics</h5>
+                            <ul>
+                                <li>Age: 42-55</li>
+                                <li>Started as a technician</li>
+                                <li>No formal tech training</li>
+                                <li>Works 55+ hours/week</li>
+                            </ul>
+                        </div>
+                        <div class="persona-section">
+                            <h5>Daily Frustrations</h5>
+                            <ul>
+                                <li>Phone rings constantly</li>
+                                <li>Scheduling conflicts daily</li>
+                                <li>Chasing down invoices</li>
+                                <li>Good techs hard to find</li>
+                            </ul>
+                        </div>
+                        <div class="persona-section">
+                            <h5>Goals</h5>
+                            <ul>
+                                <li>Grow to $5M without chaos</li>
+                                <li>Stop being the bottleneck</li>
+                                <li>Hire less admin, not more</li>
+                                <li>Eventually step back</li>
+                            </ul>
+                        </div>
+                        <div class="persona-section">
+                            <h5>How They Buy</h5>
+                            <ul>
+                                <li>Referrals from other owners</li>
+                                <li>Skeptical of "tech solutions"</li>
+                                <li>Needs to see ROI quickly</li>
+                                <li>Values relationships & trust</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segment Size -->
+            <div class="subsection">
+                <h3 class="subsection-title">Segment Size & Reach Strategy</h3>
+                <div class="two-col">
+                    <div class="chart-container">
+                        <h4 class="chart-title">Target Segment Breakdown</h4>
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <span class="bar-label">Primary (HVAC/Plumb)</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill orange" style="width: 75%;">~45,000</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">Secondary (Electrical)</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 58%;">~35,000</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">Tertiary (Multi-Trade)</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 25%;">~15,000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="mb-16">How to Reach Them</h3>
+                        <ul class="list-styled">
+                            <li><strong>Trade associations</strong> — ACCA, PHCC chapter meetings</li>
+                            <li><strong>Industry events</strong> — AHR Expo, regional trade shows</li>
+                            <li><strong>Supplier relationships</strong> — HVAC distributors as referral partners</li>
+                            <li><strong>Local networking</strong> — Chamber of commerce, BNI groups</li>
+                            <li><strong>Case study marketing</strong> — documented wins spread organically</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-banner">
+                <h3>Target Market Key Insight</h3>
+                <div class="insight-list">
+                    <div class="insight-item">
+                        <span class="insight-number">1</span>
+                        <span class="insight-text"><strong>Focus beats breadth</strong> — 45K growth-stage HVAC/plumbing SMBs is more than enough to build a business.</span>
+                    </div>
+                    <div class="insight-item">
+                        <span class="insight-number">2</span>
+                        <span class="insight-text"><strong>Trust is the currency</strong> — these buyers are skeptical of tech; relationships and proven results matter more than features.</span>
+                    </div>
+                    <div class="insight-item">
+                        <span class="insight-number">3</span>
+                        <span class="insight-text"><strong>Pain is acute and daily</strong> — missed calls, scheduling chaos, and cash flow gaps are felt every single day.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Sources & Limitations -->
+    <section id="sources" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">4</span>
+                <h2>Research Sources & Limitations</h2>
+                <p>Documenting methodology, source reliability, and honest acknowledgment of research gaps</p>
+            </div>
+
+            <!-- Sources -->
+            <div class="subsection">
+                <h3 class="subsection-title">Research Sources Used</h3>
+                <div class="source-grid">
+                    <div class="source-item primary">
+                        <div class="source-type">Industry Research</div>
+                        <div class="source-name">IBISWorld</div>
+                        <div class="source-detail">U.S. plumbing industry size ($121.5B-$169.8B), business counts</div>
+                    </div>
+                    <div class="source-item primary">
+                        <div class="source-type">Industry Research</div>
+                        <div class="source-name">Plunkett Research</div>
+                        <div class="source-detail">Combined contractor industry projections ($758B by 2030)</div>
+                    </div>
+                    <div class="source-item">
+                        <div class="source-type">Market Analysis</div>
+                        <div class="source-name">Statista</div>
+                        <div class="source-detail">HVAC business counts (117K-146K), market sizing</div>
+                    </div>
+                    <div class="source-item">
+                        <div class="source-type">Market Analysis</div>
+                        <div class="source-name">Grand View Research</div>
+                        <div class="source-detail">HVAC services market ($28.2B), growth projections (6.6% CAGR)</div>
+                    </div>
+                    <div class="source-item">
+                        <div class="source-type">Market Analysis</div>
+                        <div class="source-name">Mordor Intelligence</div>
+                        <div class="source-detail">MEP services market ($32.55B), global comparisons</div>
+                    </div>
+                    <div class="source-item">
+                        <div class="source-type">Government Data</div>
+                        <div class="source-name">Bureau of Labor Statistics</div>
+                        <div class="source-detail">HVAC mechanic job growth projections, wage data</div>
+                    </div>
+                    <div class="source-item">
+                        <div class="source-type">Competitive Intel</div>
+                        <div class="source-name">Vendor Websites & G2/Capterra</div>
+                        <div class="source-detail">Competitor pricing, features, user reviews</div>
+                    </div>
+                    <div class="source-item">
+                        <div class="source-type">Industry Forums</div>
+                        <div class="source-name">HVAC-Talk, Contractor Forums</div>
+                        <div class="source-detail">Real user pain points, software complaints, adoption patterns</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Source Reliability -->
+            <div class="subsection">
+                <h3 class="subsection-title">How We Assessed Source Reliability</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Criteria</th>
+                                <th>What We Looked For</th>
+                                <th>Sources That Met It</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Methodology transparency</strong></td>
+                                <td>Clear explanation of how data was collected</td>
+                                <td>IBISWorld, BLS, Grand View Research</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Recency</strong></td>
+                                <td>Data from 2023-2025 where possible</td>
+                                <td>Most market reports; some BLS data older</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cross-validation</strong></td>
+                                <td>Multiple sources agreeing on ranges</td>
+                                <td>HVAC market size validated across 3+ sources</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Industry recognition</strong></td>
+                                <td>Cited by trade associations or major publications</td>
+                                <td>IBISWorld, Statista widely referenced</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Data Gaps -->
+            <div class="subsection">
+                <h3 class="subsection-title">Research Gaps & Missing Data</h3>
+                <div class="limitation-list">
+                    <div class="limitation-item">
+                        <div class="limitation-icon">❓</div>
+                        <div class="limitation-content">
+                            <h5>SMB counts by firm size not segmented</h5>
+                            <p>We know there are ~146K HVAC businesses, but breakdown by 10-50 employee range isn't publicly available. Our 45K estimate is extrapolated from general small business size distributions.</p>
+                        </div>
+                    </div>
+                    <div class="limitation-item">
+                        <div class="limitation-icon">❓</div>
+                        <div class="limitation-content">
+                            <h5>Actual tech spend per SMB unverified</h5>
+                            <p>The $5K-$15K annual tech budget is estimated based on FSM software pricing tiers and industry articles, not primary survey data from contractors.</p>
+                        </div>
+                    </div>
+                    <div class="limitation-item">
+                        <div class="limitation-icon">❓</div>
+                        <div class="limitation-content">
+                            <h5>Competitor market share not disclosed</h5>
+                            <p>ServiceTitan, Housecall Pro, etc. don't publish customer counts or revenue. Competitive presence is inferred from review volume, forum mentions, and industry visibility.</p>
+                        </div>
+                    </div>
+                    <div class="limitation-item">
+                        <div class="limitation-icon">❓</div>
+                        <div class="limitation-content">
+                            <h5>Regional variation not analyzed</h5>
+                            <p>Market size is national; we haven't broken down demand by region, climate zone, or urban vs. rural — factors that likely affect service business density and tech adoption.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assumptions -->
+            <div class="subsection">
+                <h3 class="subsection-title">Key Assumptions Made</h3>
+                <div class="two-col">
+                    <div class="card">
+                        <h3 class="mb-16">What We Know vs. Estimate</h3>
+                        <table>
+                            <tr>
+                                <th>Data Point</th>
+                                <th>Confidence</th>
+                            </tr>
+                            <tr>
+                                <td>Total U.S. HVAC/plumbing market size</td>
+                                <td><strong style="color: var(--success-green);">High</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Industry growth rate (5-7% CAGR)</td>
+                                <td><strong style="color: var(--success-green);">High</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Total business count (~250K)</td>
+                                <td><strong style="color: var(--success-green);">High</strong></td>
+                            </tr>
+                            <tr>
+                                <td>10-50 employee segment size</td>
+                                <td><strong style="color: var(--warning-yellow);">Medium</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Tech spend per firm ($10K avg)</td>
+                                <td><strong style="color: var(--warning-yellow);">Medium</strong></td>
+                            </tr>
+                            <tr>
+                                <td>TAM of $2.5B</td>
+                                <td><strong style="color: var(--warning-yellow);">Medium</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="card">
+                        <h3 class="mb-16">Assumptions to Validate</h3>
+                        <ul class="list-styled warnings">
+                            <li>Missed lead intake and slow follow-up are truly painful financially</li>
+                            <li>SMBs will trust AI for customer-facing tasks</li>
+                            <li>Businesses will pay for solutions before seeing ROI</li>
+                            <li>Plumbing and electrical markets behave similarly to HVAC</li>
+                            <li>Owner-operators can be reached through trade associations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-banner">
+                <h3>Research Honesty Summary</h3>
+                <div class="insight-list">
+                    <div class="insight-item">
+                        <span class="insight-number">✓</span>
+                        <span class="insight-text"><strong>High confidence:</strong> Large, growing, fragmented market with real operational pain points and low tech adoption.</span>
+                    </div>
+                    <div class="insight-item">
+                        <span class="insight-number">~</span>
+                        <span class="insight-text"><strong>Medium confidence:</strong> TAM sizing, segment counts, and average tech spend are reasonable estimates that need validation.</span>
+                    </div>
+                    <div class="insight-item">
+                        <span class="insight-number">?</span>
+                        <span class="insight-text"><strong>Needs testing:</strong> Whether trust can be established for AI solutions, and whether SMBs will pay before seeing proven ROI.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>All-In <span>Solutions</span></h3>
+                    <p>We help service businesses stop missing leads, stabilize scheduling and communication, and get paid faster — using practical AI that works with the tools you already use.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Market Research</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:585-876-5309">585-876-5309</a></li>
+                        <li><a href="mailto:thefutureishere@golisano.com">thefutureishere@golisano.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 All-In Solutions. Market Research Foundation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.section-nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
