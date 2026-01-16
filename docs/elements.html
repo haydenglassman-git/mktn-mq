@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Elements</title>
+    <style>
+        :root {
+            --primary-blue: #1a365d;
+            --primary-blue-light: #2c5282;
+            --accent-orange: #ed8936;
+            --accent-orange-light: #f6ad55;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --background: #f7fafc;
+            --success-green: #48bb78;
+            --warning-yellow: #ecc94b;
+            --white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: sans-serif; background: var(--background); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .element { margin-bottom: 60px; }
+        .label { font-size: 12px; color: #999; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* HEADER */
+        .header {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: rgba(255,255,255,0.05);
+            transform: rotate(25deg);
+        }
+
+        /* BADGE */
+        .badge {
+            display: inline-block;
+            background: var(--accent-orange);
+            padding: 12px 32px;
+            border-radius: 50px;
+        }
+
+        /* SECTION NUMBER */
+        .section-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(26, 54, 93, 0.3);
+        }
+
+        /* STAT CARDS */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .stat-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border-top: 4px solid var(--accent-orange);
+            height: 160px;
+        }
+
+        /* BAR CHART */
+        .chart-section {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        }
+        .bar-chart { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+        .bar-item { display: flex; align-items: center; gap: 16px; }
+        .bar-label { width: 140px; height: 20px; }
+        .bar-container { flex: 1; height: 40px; background: var(--background); border-radius: 8px; overflow: hidden; }
+        .bar { height: 100%; background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%); border-radius: 8px; }
+        .bar.green { background: linear-gradient(90deg, var(--success-green) 0%, #68d391 100%); }
+        .bar.orange { background: linear-gradient(90deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%); }
+
+        /* CONTENT CARDS */
+        .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .content-card {
+            background: var(--white);
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--primary-blue);
+            height: 200px;
+        }
+        .content-card.green { border-left-color: var(--success-green); }
+        .content-card.orange {
+            border: 2px solid var(--accent-orange);
+            border-left: 4px solid var(--accent-orange);
+            background: linear-gradient(135deg, #fff 0%, #fffaf5 100%);
+        }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--background);
+            border-radius: 12px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-right: 8px;
+        }
+        .tag.opportunity { background: rgba(72, 187, 120, 0.15); }
+        .tag.risk { background: rgba(236, 201, 75, 0.2); }
+        .tag.primary { background: var(--accent-orange); }
+        .tag.secondary { background: var(--background); }
+
+        /* INSIGHT BOX */
+        .insight-box {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            padding: 40px;
+            border-radius: 16px;
+            height: 200px;
+        }
+        .insight-box.dark {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+        }
+
+        /* TABLE */
+        .table-container {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        }
+        .table-header {
+            background: var(--primary-blue);
+            height: 50px;
+        }
+        .table-row {
+            height: 50px;
+            border-bottom: 1px solid var(--background);
+        }
+
+        /* PERSONA CARD */
+        .persona-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            height: 400px;
+        }
+        .persona-left {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+        }
+        .persona-avatar {
+            width: 120px;
+            height: 120px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            margin: 40px auto;
+        }
+
+        /* WARNING CARD */
+        .warning-card {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            border-left: 4px solid var(--warning-yellow);
+            padding: 20px 24px;
+            border-radius: 12px;
+            height: 100px;
+            margin-bottom: 16px;
+        }
+
+        /* SOURCE CARD */
+        .source-card {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-blue-light);
+            height: 150px;
+            margin-bottom: 16px;
+        }
+
+        /* CONFIDENCE BADGES */
+        .confidence {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin: 4px;
+        }
+        .confidence.high { background: rgba(72, 187, 120, 0.15); }
+        .confidence.medium { background: rgba(236, 201, 75, 0.2); }
+
+        /* POSITIONING MAP */
+        .map-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+            background: var(--text-light);
+            border-radius: 12px;
+            overflow: hidden;
+            height: 300px;
+        }
+        .map-quadrant {
+            background: var(--background);
+            padding: 20px;
+        }
+        .map-item {
+            background: var(--white);
+            padding: 8px 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 8px;
+            display: inline-block;
+            width: 100px;
+            height: 35px;
+        }
+        .map-item.highlight {
+            background: var(--accent-orange);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--primary-blue);
+            padding: 60px 40px;
+            border-radius: 24px;
+            height: 250px;
+        }
+
+        /* BULLET LIST */
+        .bullet-list {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            height: 280px;
+        }
+        .bullet-list.yellow { border-left: 4px solid var(--warning-yellow); }
+        .bullet-list.green { border-left: 4px solid var(--success-green); }
+
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- HEADER BACKGROUND -->
+        <div class="element">
+            <div class="label">Header Background (gradient with diagonal accent)</div>
+            <div class="header"></div>
+        </div>
+
+        <!-- BADGE -->
+        <div class="element">
+            <div class="label">Badge / Tag</div>
+            <div class="badge"></div>
+        </div>
+
+        <!-- SECTION NUMBERS -->
+        <div class="element">
+            <div class="label">Section Number Circles</div>
+            <div style="display: flex; gap: 20px;">
+                <div class="section-number"></div>
+                <div class="section-number"></div>
+                <div class="section-number"></div>
+                <div class="section-number"></div>
+            </div>
+        </div>
+
+        <!-- STAT CARDS -->
+        <div class="element">
+            <div class="label">Stat Cards (4 across)</div>
+            <div class="stats-grid">
+                <div class="stat-card"></div>
+                <div class="stat-card"></div>
+                <div class="stat-card"></div>
+                <div class="stat-card"></div>
+            </div>
+        </div>
+
+        <!-- BAR CHARTS -->
+        <div class="element">
+            <div class="label">Bar Chart - Blue Gradient</div>
+            <div class="chart-section">
+                <div class="bar-chart">
+                    <div class="bar-item"><div class="bar-label"></div><div class="bar-container"><div class="bar" style="width: 85%;"></div></div></div>
+                    <div class="bar-item"><div class="bar-label"></div><div class="bar-container"><div class="bar" style="width: 50%;"></div></div></div>
+                    <div class="bar-item"><div class="bar-label"></div><div class="bar-container"><div class="bar" style="width: 30%;"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="element">
+            <div class="label">Bar Chart - Green Gradient (for growth/positive metrics)</div>
+            <div class="chart-section">
+                <div class="bar-chart">
+                    <div class="bar-item"><div class="bar-label"></div><div class="bar-container"><div class="bar green" style="width: 70%;"></div></div></div>
+                    <div class="bar-item"><div class="bar-label"></div><div class="bar-container"><div class="bar green" style="width: 65%;"></div></div></div>
+                    <div class="bar-item"><div class="bar-label"></div><div class="bar-container"><div class="bar green" style="width: 35%;"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="element">
+            <div class="label">Bar Chart - Orange Gradient (for primary/highlight)</div>
+            <div class="chart-section">
+                <div class="bar-chart">
+                    <div class="bar-item"><div class="bar-label"></div><div class="bar-container"><div class="bar orange" style="width: 75%;"></div></div></div>
+                    <div class="bar-item"><div class="bar-label"></div><div class="bar-container"><div class="bar" style="width: 58%;"></div></div></div>
+                    <div class="bar-item"><div class="bar-label"></div><div class="bar-container"><div class="bar" style="width: 25%;"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENT CARDS -->
+        <div class="element">
+            <div class="label">Content Cards (blue border - standard)</div>
+            <div class="cards-grid">
+                <div class="content-card"><div class="card-icon"></div></div>
+                <div class="content-card"><div class="card-icon"></div></div>
+            </div>
+        </div>
+
+        <div class="element">
+            <div class="label">Content Cards (green border - opportunity)</div>
+            <div class="cards-grid">
+                <div class="content-card green"><div class="card-icon"></div></div>
+                <div class="content-card green"><div class="card-icon"></div></div>
+            </div>
+        </div>
+
+        <div class="element">
+            <div class="label">Content Card (orange border - primary/highlight)</div>
+            <div class="content-card orange" style="width: 50%;"><div class="card-icon"></div></div>
+        </div>
+
+        <!-- TAGS -->
+        <div class="element">
+            <div class="label">Tags / Badges</div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <div class="tag opportunity" style="width: 100px; height: 30px;"></div>
+                <div class="tag risk" style="width: 80px; height: 30px;"></div>
+                <div class="tag primary" style="width: 120px; height: 30px;"></div>
+                <div class="tag secondary" style="width: 140px; height: 30px;"></div>
+            </div>
+        </div>
+
+        <!-- INSIGHT BOXES -->
+        <div class="element">
+            <div class="label">Insight Box (blue gradient)</div>
+            <div class="insight-box"></div>
+        </div>
+
+        <div class="element">
+            <div class="label">Insight Box (dark gray gradient)</div>
+            <div class="insight-box dark"></div>
+        </div>
+
+        <!-- TABLE -->
+        <div class="element">
+            <div class="label">Table Structure</div>
+            <div class="table-container">
+                <div class="table-header"></div>
+                <div class="table-row"></div>
+                <div class="table-row"></div>
+                <div class="table-row"></div>
+                <div class="table-row"></div>
+            </div>
+        </div>
+
+        <!-- POSITIONING MAP -->
+        <div class="element">
+            <div class="label">Competitive Positioning Map (2x2 grid)</div>
+            <div class="chart-section">
+                <div class="map-grid">
+                    <div class="map-quadrant">
+                        <div class="map-item"></div>
+                        <div class="map-item"></div>
+                    </div>
+                    <div class="map-quadrant">
+                        <div class="map-item"></div>
+                    </div>
+                    <div class="map-quadrant">
+                        <div class="map-item highlight"></div>
+                    </div>
+                    <div class="map-quadrant">
+                        <div class="map-item"></div>
+                        <div class="map-item"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PERSONA CARD -->
+        <div class="element">
+            <div class="label">Persona Card Layout</div>
+            <div class="persona-card">
+                <div class="persona-left">
+                    <div class="persona-avatar"></div>
+                </div>
+                <div class="persona-right"></div>
+            </div>
+        </div>
+
+        <!-- WARNING CARDS -->
+        <div class="element">
+            <div class="label">Warning / Gap Cards (yellow)</div>
+            <div class="warning-card"></div>
+            <div class="warning-card"></div>
+        </div>
+
+        <!-- SOURCE CARDS -->
+        <div class="element">
+            <div class="label">Source / Reference Cards</div>
+            <div class="two-col">
+                <div class="source-card"></div>
+                <div class="source-card"></div>
+            </div>
+        </div>
+
+        <!-- BULLET LISTS -->
+        <div class="element">
+            <div class="label">Bullet List Containers</div>
+            <div class="two-col">
+                <div class="bullet-list"></div>
+                <div class="bullet-list green"></div>
+            </div>
+        </div>
+
+        <div class="element">
+            <div class="label">Bullet List (yellow accent - warnings/assumptions)</div>
+            <div class="bullet-list yellow" style="width: 50%;"></div>
+        </div>
+
+        <!-- CONFIDENCE BADGES -->
+        <div class="element">
+            <div class="label">Confidence Level Badges</div>
+            <div>
+                <div class="confidence high" style="width: 80px; height: 30px;"></div>
+                <div class="confidence medium" style="width: 100px; height: 30px;"></div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="element">
+            <div class="label">Footer Background</div>
+            <div class="footer"></div>
+        </div>
+
+    </div>
+</body>
+</html>
